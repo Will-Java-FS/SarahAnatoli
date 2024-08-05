@@ -1,44 +1,70 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Data
+//@Data
 @Table(name="users")
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Users {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column
-    private String userName;
-    @Column
-    private String userPassword;
+    @Column(name="userid")
+    private Integer userid;
+    @Column(name="name")
+    private String name;
+    @Column(name="password")
+    private String password;
+
+    @Autowired
+    Users(){
+
+    }
+
+    @Autowired
+    Users(String name, String password){
+        this.name=name;
+        this.password=password;
+    }
+
+    @Autowired
+    Users(Integer id, String name, String password){
+        this.userid=id;
+        this.name=name;
+        this.password=password;
+    }
 
     public long getId() {
-        return id;
+        return this.userid;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId(Integer id) {
+        this.userid = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUser_password() {
-        return userPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int passwordLength(){
+        return this.password.length();
     }
 
     //todo connect to games table
