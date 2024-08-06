@@ -1,9 +1,11 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 @Entity
 //@Data
@@ -20,6 +22,9 @@ public class Users {
     private String name;
     @Column(name="password")
     private String password;
+    //@Setter
+    //@Getter
+    //private List<String> usergameslist;
 
     @Autowired
     Users(){
@@ -67,6 +72,12 @@ public class Users {
         return this.password.length();
     }
 
-    //todo connect to games table
 
+
+
+    //todo connect to games table
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "gid")
+    @JsonManagedReference
+    private List<Games> games;
 }
