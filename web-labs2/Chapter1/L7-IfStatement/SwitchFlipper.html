@@ -47,7 +47,13 @@
            * if lightOn is false, set the innerText of lightText to "the light is off."
            */
           function checkLight(){
-
+                if(lightOn==true){
+                    //console.log("Yes")
+                    document.getElementById("lightText").innerHTML ="The light is on.";
+                }else{
+                    //console.log("no")
+                    document.getElementById("lightText").innerHTML ="The light is off.";
+                }
           }
 
       </script>
