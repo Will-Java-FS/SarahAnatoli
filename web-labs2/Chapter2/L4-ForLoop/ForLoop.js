@@ -20,4 +20,9 @@ button.onclick = getSum;
  */
 function getSum(){
     let val = parseInt(input.value);
+    let ans = 0
+    for(let i=0; i<val; i++){
+        ans=ans+i;
+    }
+    document.getElementById("result").innerHTML=ans;
 }

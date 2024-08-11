@@ -7,16 +7,27 @@ let input = document.getElementById("input");
 let list = document.getElementById("list");
 button.onclick = addItem;
 /**
- * TODO: every time the button is clicked, this method should create & append an <li> element to the 'list' element.
- * The innerText of the new <li> element should be the current value of the input box.
- * This is a three-step process: you must create the element, set its attributes, and then append it to an existing
- * element on the page. For instance, if you were appending an <img> element with some src attribute to a div named
- * "container", it would look like this:
- * let imgElement = document.createElement("img");
- * imgElement.src = "image.jpg";
- * container.appendChild(imgElement);
- * your task will be to do the same, but with the requirements specified in the TODO statement.
+  TODO: every time the button is clicked, this method should create & append an <li> element to the 'list' element.
+  The innerText of the new <li> element should be the current value of the input box.
+  This is a three-step process: you must create the element, set its attributes, and then append it to an existing
+  element on the page. For instance, if you were appending an <img> element with some src attribute to a div named
+  "container", it would look like this:
+  let imgElement = document.createElement("img");
+  imgElement.src = "image.jpg";
+  container.appendChild(imgElement);
+  your task will be to do the same, but with the requirements specified in the TODO statement.
  */
 function addItem(){
+    console.log("in add item");
+    // Step 1: Create the <li> element
+    let liElement = document.createElement("li");
 
+    // Step 2: Set its innerText to the value of the input box
+    liElement.innerText = input.value;
+
+    // Step 3: Append the <li> element to the 'list' element
+    list.appendChild(liElement);
+
+    // Optionally clear the input after adding the item
+    input.value = "";
 }

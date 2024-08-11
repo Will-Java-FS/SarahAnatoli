@@ -1,6 +1,7 @@
 let content = document.getElementById("content");
 user = returnUserObject("user1", "password123");
 displayUserObject(user);
+console.log(user);
 
 
 /**
@@ -16,6 +17,10 @@ displayUserObject(user);
  */
 function returnUserObject(inputUsername, inputPassword){
 //    code here
+return{
+        username: inputUsername,
+        password: inputPassword
+    }
 }
 
 /**
